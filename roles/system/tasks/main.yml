@@ -16,6 +16,14 @@
   command: setenforce 0
   when: result.rc == 0
 
+- name: firewalldを有効化
+  sudo: yes
+  command: systemctl enable firewalld
+
+- name: firewalldを開始
+  sudo: yes
+  service: name=firewalld enabled=true state=started
+
 - name: firewalldでHTTPを許可
   sudo: yes
   command: firewall-cmd --zone=public --add-service=http --permanent
