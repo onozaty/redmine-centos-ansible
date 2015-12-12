@@ -41,12 +41,14 @@
     src=redmine.conf
     dest=/etc/httpd/conf.d/redmine.conf
 
-- name: Redmineに /redmine でアクセスするためのシンボリックリンク作成
+- name: DocumentRootをRedmineに
   sudo: yes
-  file:
-    state=link
-    src={{ redmine_dir }}/public
-    dest=/var/www/html/redmine
+  lineinfile:
+    state: present
+    dest: /etc/httpd/conf/httpd.conf
+    regexp: '^DocumentRoot'
+    line: DocumentRoot {{ redmine_dir }}/public
+    backup: yes
 
 - name: httpdの再起動
   sudo: yes
