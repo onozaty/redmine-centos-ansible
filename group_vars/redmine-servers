@@ -4,7 +4,7 @@ db_passwd_redmine: redmine
 # ----------------------------------------------------------------------
 
 # Redmineのチェックアウト元URL
-redmine_svn_url: http://svn.redmine.org/redmine/branches/3.3-stable
+redmine_svn_url: http://svn.redmine.org/redmine/branches/3.4-stable
 
 # Redmineのデプロイ先ディレクトリ
 redmine_dir: /var/lib/redmine
